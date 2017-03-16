@@ -1,11 +1,17 @@
 # FriendEditor
 A WPF sample app to demonstrate how to use MVVM design pattern and MVVMLight toolkit.
 
+It covers the following scenarios:
+1. MVVM + SQLite;
+2. Master-detail;
+3. IoC and database provider service;
+4. Showing message in viewmodel;
+5. Openning a new window with parameter in viewmodel;
+6. Command, User control, etc.
+
+**Screenshots:**
 
 ![Main window](https://github.com/imnbwd/FriendEditor/blob/master/Screenshots/Main.png)
 
-Main Window
 
 ![Edit window](https://github.com/imnbwd/FriendEditor/blob/master/Screenshots/Edit.png)
-
-Edit Window
