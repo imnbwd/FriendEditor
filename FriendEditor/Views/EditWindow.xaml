@@ -1,0 +1,68 @@
+﻿<Window
+    x:Class="FriendEditor.Views.EditWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Add/Edit Friend"
+    Width="300"
+    Height="300"
+    DataContext="{Binding EditViewModel, Source={StaticResource Locator}}"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.Resources>
+            <Thickness x:Key="InfoMargin">0,10,0,0</Thickness>
+        </Grid.Resources>
+        <StackPanel Margin="10">
+            <TextBlock Text="Name" />
+            <TextBox
+                Margin="0,5,0,0"
+                Padding="2"
+                FontWeight="Bold"
+                Text="{Binding CurrentFriend.Name, Mode=TwoWay}" />
+
+            <TextBlock Margin="{StaticResource InfoMargin}" Text="Email" />
+            <TextBox
+                Margin="0,5,0,0"
+                Padding="2"
+                FontWeight="Bold"
+                Text="{Binding CurrentFriend.Email, Mode=TwoWay}" />
+
+            <CheckBox
+                Margin="{StaticResource InfoMargin}"
+                Content="Is developer"
+                FontWeight="Bold"
+                IsChecked="{Binding CurrentFriend.IsDeveloper, Mode=TwoWay}" />
+
+            <TextBlock Margin="{StaticResource InfoMargin}" Text="Brith date" />
+            <DatePicker
+                Margin="0,5,0,0"
+                FontWeight="Bold"
+                Text="{Binding CurrentFriend.BirthDate, Mode=TwoWay}" />
+
+            <StackPanel
+                Margin="0,10,0,0"
+                VerticalAlignment="Bottom"
+                Orientation="Horizontal">
+                <Button
+                    Padding="5"
+                    Command="{Binding SaveDataCommand}"
+                    Content="Save" />
+                <Button
+                    Margin="10,0,0,0"
+                    Padding="5"
+                    Content="Cancel">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ei:CallMethodAction MethodName="Close" TargetObject="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
