@@ -5,6 +5,17 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendEditor", "FriendEditor\FriendEditor.csproj", "{D5F4F53B-544D-4727-8580-DED448127DD3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71FCF6E1-C886-4E1E-96FC-183B3B369D5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{6AF7AD22-CEA2-4921-93C0-DA78887FCF27}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\Edit.png = Screenshots\Edit.png
+		Screenshots\Main.png = Screenshots\Main.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AF7AD22-CEA2-4921-93C0-DA78887FCF27} = {71FCF6E1-C886-4E1E-96FC-183B3B369D5D}
 	EndGlobalSection
 EndGlobal
