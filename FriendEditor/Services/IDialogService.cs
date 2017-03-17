@@ -1,4 +1,6 @@
-﻿namespace FriendEditor.Services
+﻿using System;
+
+namespace FriendEditor.Services
 {
     public interface IDialogService
     {
@@ -7,5 +9,7 @@
         void ShowMessage(string message);
 
         void Warning(string message);
+
+        void Exception(Exception ex);
     }
 }

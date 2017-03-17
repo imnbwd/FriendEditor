@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace FriendEditor.Services
 {
@@ -8,6 +9,14 @@ namespace FriendEditor.Services
         {
             var result = MessageBox.Show(message, "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes ? true : false;
+        }
+
+        public void Exception(Exception ex)
+        {
+            string message = $@"An exception thrown: {ex.Message}
+
+{ex.ToString()}";
+            MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         public void ShowMessage(string message)

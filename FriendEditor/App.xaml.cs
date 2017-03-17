@@ -16,6 +16,12 @@ namespace FriendEditor
             SimpleIoc.Default.Register<IEditWindowController, EditWindowController>();
             SimpleIoc.Default.Register<IDialogService, DialogService>();
 
+            App.Current.DispatcherUnhandledException += (s, args) =>
+            {
+                SimpleIoc.Default.GetInstance<IDialogService>().Exception(args.Exception);
+                args.Handled = true;
+            };
+
             MainWindow mainWindow = new MainWindow();
             App.Current.MainWindow = mainWindow;
             mainWindow.Show();
