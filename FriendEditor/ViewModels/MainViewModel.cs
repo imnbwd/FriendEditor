@@ -10,8 +10,14 @@ namespace FriendEditor.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        #region Variables
+
         private ObservableCollection<Friend> _allFriends;
         private Friend _selectedFriend;
+
+        #endregion Variables
+
+        #region Constructors
 
         public MainViewModel(IDataProvider dataProvider, IEditWindowController editWindowController, IDialogService dialogService)
         {
@@ -25,6 +31,10 @@ namespace FriendEditor.ViewModels
 
             AllFriends = new ObservableCollection<Friend>(dataProvider.GetAllFriends().OfType<Friend>());
         }
+
+        #endregion Constructors
+
+        #region Properties
 
         public RelayCommand AddFriendCommand { get; set; }
 
@@ -59,6 +69,10 @@ namespace FriendEditor.ViewModels
             }
         }
 
+        #endregion Properties
+
+        #region Methods
+
         private void AddFriend()
         {
             var result = EditWindowController.ShowDialog(new OpenEditWindowArgs { Type = ActionType.Add });
@@ -83,7 +97,7 @@ namespace FriendEditor.ViewModels
             var result = EditWindowController.ShowDialog(new OpenEditWindowArgs { Type = ActionType.Edit, Friend = SelectedFriend });
             if (result.HasValue && result.Value)
             {
-                // Remember user's selection 
+                // Remember user's selection
                 int index = AllFriends.IndexOf(SelectedFriend);
                 AllFriends = new ObservableCollection<Friend>(DataProvider.GetAllFriends().OfType<Friend>());
 
@@ -91,5 +105,7 @@ namespace FriendEditor.ViewModels
                 SelectedFriend = AllFriends[index];
             }
         }
+
+        #endregion Methods
     }
 }

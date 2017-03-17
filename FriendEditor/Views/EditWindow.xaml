@@ -10,6 +10,7 @@
     Width="300"
     Height="300"
     DataContext="{Binding EditViewModel, Source={StaticResource Locator}}"
+    ShowInTaskbar="False"
     WindowStartupLocation="CenterScreen"
     WindowStyle="ToolWindow"
     mc:Ignorable="d">

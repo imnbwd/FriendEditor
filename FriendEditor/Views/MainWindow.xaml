@@ -38,9 +38,21 @@
             </Grid.ColumnDefinitions>
 
             <ListView ItemsSource="{Binding AllFriends}" SelectedItem="{Binding SelectedFriend, Mode=TwoWay}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock FontSize="16" Text="{Binding Name}" />
+                        <TextBlock FontSize="16" Text="{Binding Name}">
+                            <TextBlock.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding DataContext.EditFriendCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                                    CommandParameter="{Binding DataContext.SelectedFriend, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                                    MouseAction="LeftDoubleClick" />
+                            </TextBlock.InputBindings>
+                        </TextBlock>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

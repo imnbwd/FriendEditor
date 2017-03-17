@@ -10,6 +10,8 @@ namespace FriendEditor.ViewModels
 {
     public class EditViewModel : ViewModelBase
     {
+        #region Constructors
+
         public EditViewModel(OpenEditWindowArgs args, IDataProvider dataProvider, IDialogService dialogService)
         {
             Args = args;
@@ -38,11 +40,19 @@ namespace FriendEditor.ViewModels
             SaveDataCommand = new RelayCommand(SaveData);
         }
 
+        #endregion Constructors
+
+        #region Properties
+
         public Friend CurrentFriend { get; set; }
         public IDataProvider DataProvider { get; }
         public IDialogService DialogService { get; set; }
         public RelayCommand SaveDataCommand { get; set; }
         protected OpenEditWindowArgs Args { get; }
+
+        #endregion Properties
+
+        #region Methods
 
         private void SaveData()
         {
@@ -72,6 +82,12 @@ namespace FriendEditor.ViewModels
                 // Send a message to Close the current View(EditWindow)
                 Messenger.Default.Send(new CloseWindowEventArgs());
             }
+            else
+            {
+                DialogService.Warning($"Error occured, save data failed");
+            }
         }
+
+        #endregion Methods
     }
 }
